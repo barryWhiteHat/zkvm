@@ -26,3 +26,21 @@ The commitment is the whole stack for that block. It includes the op codes AND t
 For each opcode in the stack we execute it and update the stack.
 
 Each EVM opcode is a custom constraint. We select the custom constraint based upon the stack and execute that. 
+
+## Variables used 
+
+
+### State proof variables
+
+1. Opcodes: A list of the codecodes that can get executed.
+2. Execution Map: An ordered list of the index (in Opcodes) of all the opcodes that get executed.
+
+3. StateQue: An ordered list of all the State objects that get loaded from or written to the state.
+4. MemoryQue: An ordered list of variables that get loaded from or written to memory. 
+
+### EVM proof variables 
+1. ExectionContext[]: This containts an opcodes instance, MemoryPage instance, stackCount instance ,  ExecutionMap and msg.sender.  
+2. ExecutionContextIndex: This is the index of the currently exectued ExecutionContext. 
+2. Opcodes: This is an array of the opcodes to be executed in this ExecutionContext.
+3. stackCount: The position in the stack that the next opcode to be read is from.
+
